@@ -1,0 +1,21 @@
+$ORIGIN corrupt.com.
+$TTL 3000
+@		SOA	ns1 ns1 2021010101 3600 900 604800 2000000
+		NS	ns1
+ns1		A	192.168.0.101
+		AAAA	fd00:1:1:192::101
+rtype		A	1.2.3.4
+		AAAA	1:2::3:4
+		MX	10 mail
+		SRV	1 0 9 srv
+		TXT	"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+ttl200	200	A	192.168.0.123
+www		A	192.168.0.123
+mail		A	192.168.0.123
+		AAAA	1:2::3:4
+srv		A	192.168.0.123
+		AAAA	1:2::3:4
+txt1000bytes	TXT	"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa100byte" "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1000byte"
+case_rand_test	A	192.168.0.123
+open_sesame	A	192.168.0.124
+secret		A	192.168.0.125
