@@ -13,14 +13,14 @@ It is based on [SimpleAuthDNS](https://github.com/nimjim/SimpleAuthDNS.git) and 
 
 ## Installation and Usage
 
-```bash
+```
 pip3 install dnspython
 git clone https://github.com/nimjim/CorruptAuthDNS.git
 cd CorruptAuthDNS
 python3 main.py -d -c
 ```
 
-```bash
+```
 $ python3 main.py -h
 usage: main.py [-h] [-s SERVER] [-p PORT] [-v] [-d] [-f FILE] [-c]
 
@@ -44,3 +44,44 @@ It is possible to modify the response in corrupt_response.py.
 As an example, it is implemented to make a response with the wrong case if the qname is starts with case_rand_test.
 This allows us to see how a DNS full resolver implementing qname case randomization behaves when it receives an answer with wrong case.
 
+```
+$ python3 main.py -c -d
+running in DEBUG MODE
+running in CORRUPT TEST MODE
+CorruptAuthDNS: running
+Listening on UDP and TCP port 53
+
+...
+
+(do iterative query from a full resolver with qname case randomization feature)
+UDP query: CASe_rand_test.cORRuPt.com. A IN from 172.21.247.90#36030, id: 63716
+Response for id 63716
+opcode QUERY
+rcode NOERROR
+flags QR AA
+edns 0
+payload 8192
+;QUESTION
+CASe_rand_test.cORRuPt.com. IN A
+;ANSWER
+CASe_rand_test.cORRuPt.com. 3000 IN A 192.168.0.123
+;AUTHORITY
+;ADDITIONAL
+
+Response was altered as follows.
+qname:	CASe_rand_test.cORRuPt.com.	->	cAsE_RaND_TeST.COrrupt.com.
+id 63716
+opcode QUERY
+rcode NOERROR
+flags QR AA
+edns 0
+payload 8192
+;QUESTION
+cAsE_RaND_TeST.COrrupt.com. IN A
+;ANSWER
+cAsE_RaND_TeST.COrrupt.com. 3000 IN A 192.168.0.123
+;AUTHORITY
+;ADDITIONAL
+
+...
+```

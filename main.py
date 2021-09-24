@@ -226,7 +226,7 @@ def resolve_query(query):
 
 def main():
     process_command_line_args()
-    print("SimpleAuthDNS: running")
+    print("CorruptAuthDNS: running")
     fd_read, sockets, is_tcp_dict = setup_sockets(SERVER, PORT)
     print("Listening on UDP and TCP port {}".format(PORT))
 
